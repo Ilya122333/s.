@@ -2,7 +2,7 @@
 
 Android port of [Space Station 14](https://github.com/space-wizards/space-station-14).
 
-> [!WARNING]
+> [!WARNING
 > **Disclaimer / unofficial client**
 > 
 > This android port is NOT provided or supported by Space Wizards Federation, and at that moment more like proof of work.
