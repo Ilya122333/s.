@@ -1048,9 +1048,12 @@ namespace Content.Android
                     if (!string.IsNullOrEmpty(username))
                     {
                         args.Add("--username");
+                     
                         args.Add(username);
                     }
-
+                    args.Add("--cvar");
+                        args.Add("webview.enabled=false");
+                        
                     foreach (var (cvarName, val) in LaunchBuildCVars)
                     {
                         args.Add("--cvar");
@@ -1067,6 +1070,8 @@ namespace Content.Android
                 var optsType = robustClient.GetType("Robust.Client.GameControllerOptions");
                 var options = Activator.CreateInstance(optsType!);
                 optsType?.GetProperty("Sandboxing")?.SetValue(options, false);
+                optsType?.GetProperty("DisableWebView")?.SetValue(options, true);
+                
 
                 var contentStart = !hasZip;
                 global::Android.Util.Log.Info("SS14Launch", $"[Main] Starting GameController: contentStart={contentStart}, hasZip={hasZip}, mountZip={mountZip}, connectAddr={connectAddr}, user={username}");
